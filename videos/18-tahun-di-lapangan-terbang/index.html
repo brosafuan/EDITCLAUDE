@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<title>18 Tahun Di Lapangan Terbang</title>
+<style>
+@font-face { font-family: "Montserrat"; src: url("fonts/Montserrat.ttf") format("truetype"); font-weight: 100 900; }
+:root {
+  --kuning: #F2BF45; --putih: #F3F2EE; --hitam: #1C1C1E; --merah: #D8473B;
+  --navy: #2E3763; --kulit: #C68B65; --jaket: #263052;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+body { font-family: "Montserrat", sans-serif; }
+#stage { position: absolute; inset: 0; overflow: hidden; }
+.scene { position: absolute; inset: 0; overflow: hidden; display: none; }
+.scene.kuning { background: var(--kuning); }
+.scene.putih { background: var(--putih); }
+.bgw { position: absolute; left: -400px; top: -60px; width: 3000px; }
+.bgw div { font-weight: 900; font-size: 190px; line-height: 205px; letter-spacing: 4px; white-space: nowrap; color: rgba(0,0,0,.06); }
+.scene.putih .bgw div { color: rgba(0,0,0,.045); }
+.el { position: absolute; opacity: 0; will-change: transform, opacity; }
+.tag { left: 50%; top: 150px; background: var(--hitam); color: #fff; font-weight: 800; font-size: 46px; padding: 10px 26px; border-radius: 8px; letter-spacing: 1px; white-space: nowrap; translate: -50% 0; }
+.title { left: 0; right: 0; top: 245px; text-align: center; color: var(--merah); font-weight: 900; font-size: 150px; line-height: 1; letter-spacing: -2px; white-space: nowrap; }
+.pill { background: var(--navy); color: #fff; font-weight: 800; font-size: 34px; padding: 10px 26px; border-radius: 40px; white-space: nowrap; letter-spacing: .5px; }
+.pill.merah { background: var(--merah); }
+.pill .lead { position: absolute; left: 50%; width: 0; border-left: 5px dotted var(--hitam); }
+.sticker { background: var(--hitam); color: #fff; font-weight: 900; font-size: 62px; padding: 8px 28px; white-space: nowrap; letter-spacing: 1px; box-shadow: 6px 6px 0 rgba(0,0,0,.15); }
+.sticker.merah { background: var(--merah); }
+.stamp { color: var(--merah); border: 9px solid var(--merah); font-weight: 900; font-size: 64px; padding: 4px 22px; border-radius: 10px; white-space: nowrap; background: rgba(255,255,255,.85); }
+#cap { position: absolute; left: 50%; top: 1590px; translate: -50% 0; max-width: 940px; background: #2A2A2C; color: #fff; font-weight: 700; font-size: 46px; line-height: 1.25; text-align: center; padding: 16px 30px; border-radius: 12px; z-index: 50; }
+#fade { position: absolute; inset: 0; background: #000; opacity: 0; z-index: 60; pointer-events: none; }
+svg { display: block; overflow: visible; }
+</style>
+</head>
+<body>
+<div id="stage">
+
+  <!-- 1 · Hook -->
+  <section class="scene kuning" id="s1" data-bg="TERMINAL">
+    <div class="el tag" id="s1tag">KISAH BENAR</div>
+    <div class="el title" id="s1title"><span id="s1num">0</span> TAHUN?</div>
+    <div class="el" id="s1board" style="left:660px;top:430px"></div>
+    <div class="el" id="s1bench" style="left:190px;top:1050px"></div>
+    <div class="el" id="s1man" style="left:390px;top:790px"></div>
+    <div class="el pill" id="s1pill" style="left:60px;top:760px">LAPANGAN TERBANG PARIS<i class="lead" style="top:62px;height:150px"></i></div>
+  </section>
+
+  <!-- 2 · Siapa dia -->
+  <section class="scene putih" id="s2" data-bg="IRAN">
+    <div class="el tag" id="s2tag">SIAPA DIA?</div>
+    <div class="el title" id="s2title">1977</div>
+    <div class="el" id="s2man" style="left:170px;top:640px"></div>
+    <div class="el pill" id="s2pill" style="left:90px;top:1360px">MEHRAN KARIMI NASSERI</div>
+    <div class="el" id="s2flag" style="left:640px;top:600px"></div>
+    <div class="el pill merah" id="s2pill2" style="left:720px;top:1080px">IRAN</div>
+    <div class="el sticker" id="s2st1" style="left:300px;top:760px" data-r="-9">DIUSIR</div>
+    <div class="el sticker merah" id="s2st2" style="left:270px;top:900px" data-r="6">MENENTANG SHAH</div>
+  </section>
+
+  <!-- 3 · Pelarian -->
+  <section class="scene kuning" id="s3" data-bg="PELARIAN">
+    <div class="el tag" id="s3tag">1977 – 1988</div>
+    <div class="el title" id="s3title">PELARIAN</div>
+    <div class="el" id="s3map" style="left:70px;top:480px"></div>
+    <div class="el sticker" id="s3st" style="left:330px;top:1310px" data-r="-7">STATUS: PELARIAN</div>
+  </section>
+
+  <!-- 4 · Dokumen hilang -->
+  <section class="scene putih" id="s4" data-bg="1988">
+    <div class="el tag" id="s4tag">PARIS · CHARLES DE GAULLE</div>
+    <div class="el title" id="s4title">1988</div>
+    <div class="el" id="s4case" style="left:330px;top:900px"></div>
+    <div class="el pill" id="s4pill" style="left:400px;top:1290px">BEG DOKUMEN</div>
+    <div class="el sticker merah" id="s4st" style="left:180px;top:610px" data-r="-8">TIADA DOKUMEN</div>
+  </section>
+
+  <!-- 5 · Terkandas -->
+  <section class="scene kuning" id="s5" data-bg="TERKANDAS">
+    <div class="el tag" id="s5tag">TANPA DOKUMEN</div>
+    <div class="el title" id="s5title">TERKANDAS</div>
+    <div class="el" id="s5doorL" style="left:40px;top:640px"></div>
+    <div class="el" id="s5doorR" style="left:740px;top:640px"></div>
+    <div class="el" id="s5man" style="left:390px;top:820px"></div>
+    <div class="el stamp" id="s5x1" style="left:40px;top:880px" data-r="-14">DITOLAK</div>
+    <div class="el stamp" id="s5x2" style="left:735px;top:880px" data-r="12">DITOLAK</div>
+  </section>
+
+  <!-- 6 · Rumah baru -->
+  <section class="scene putih" id="s6" data-bg="RUMAH">
+    <div class="el tag" id="s6tag">1988 – 2006</div>
+    <div class="el title" id="s6title" style="font-size:128px">RUMAH BARU</div>
+    <div class="el" id="s6map" style="left:0;top:0"></div>
+    <div class="el sticker merah" id="s6st" style="left:590px;top:1350px" data-r="-6">± 6,500 HARI</div>
+  </section>
+
+  <!-- 7 · Filem & 2006 -->
+  <section class="scene kuning" id="s7" data-bg="HOLLYWOOD">
+    <div class="el tag" id="s7tag">2004</div>
+    <div class="el title" id="s7title">DIFILEMKAN</div>
+    <div class="el" id="s7clap" style="left:240px;top:650px"></div>
+    <div class="el sticker" id="s7st" style="left:540px;top:600px" data-r="8">HOLLYWOOD</div>
+    <div class="el pill" id="s7pill" style="left:330px;top:1270px">THE TERMINAL (2004)</div>
+    <div class="el" id="s7med" style="left:340px;top:700px"></div>
+    <div class="el sticker merah" id="s7st2" style="left:160px;top:1260px" data-r="-6">KELUAR KERANA SAKIT</div>
+  </section>
+
+  <!-- 8 · Kembali -->
+  <section class="scene putih" id="s8" data-bg="KEMBALI">
+    <div class="el tag" id="s8tag">12 NOVEMBER 2022</div>
+    <div class="el title" id="s8title">KEMBALI</div>
+    <div class="el title" id="s8title2" style="font-size:128px">AKHIR HAYAT</div>
+    <div class="el" id="s8bench" style="left:190px;top:1050px"></div>
+    <div class="el" id="s8bags" style="left:760px;top:1150px"></div>
+    <div class="el" id="s8man" style="left:390px;top:790px"></div>
+    <div class="el pill" id="s8pill" style="left:400px;top:640px">TERMINAL 2F</div>
+  </section>
+
+  <!-- 9 · CTA -->
+  <section class="scene kuning" id="s9" data-bg="KISAH BENAR">
+    <div class="el tag" id="s9tag">KISAH BENAR SETERUSNYA</div>
+    <div class="el" id="s9plane" style="left:0;top:560px"></div>
+    <div class="el sticker" id="s9btn" style="left:250px;top:800px;font-size:110px;padding:18px 54px;border-radius:24px" data-r="-4">+ FOLLOW</div>
+    <div class="el title" id="s9title" style="top:1080px;font-size:96px">18 TAHUN.</div>
+    <div class="el title" id="s9sub" style="top:1200px;font-size:52px;color:var(--hitam);font-weight:800;letter-spacing:0">SATU LAPANGAN TERBANG.</div>
+  </section>
+
+  <div id="cap"></div>
+  <div id="fade"></div>
+</div>
+
+<script src="timeline.js"></script>
+<script>
+// ---------- lukisan vektor ----------
+const C = { kulit: "#C68B65", kulitG: "#A9714F", rambut: "#2A2A2E", jaket: "#263052", seluar: "#4A4F63", baju: "#8E99B0", kasut: "#1E1E24", merah: "#D8473B", merahG: "#B33A30", besi: "#6B6F7A", hitam: "#1C1C1E" };
+
+function head() {
+  return `
+  <rect x="134" y="150" width="32" height="44" fill="${C.kulitG}"/>
+  <ellipse cx="102" cy="120" rx="11" ry="16" fill="${C.kulit}"/><ellipse cx="198" cy="120" rx="11" ry="16" fill="${C.kulit}"/>
+  <ellipse cx="150" cy="112" rx="48" ry="60" fill="${C.kulit}"/>
+  <path d="M104 92 Q98 140 114 166 L120 150 Q110 122 114 96 Z" fill="${C.rambut}"/>
+  <path d="M196 92 Q202 140 186 166 L180 150 Q190 122 186 96 Z" fill="${C.rambut}"/>
+  <path d="M126 58 Q150 46 176 60" stroke="${C.rambut}" stroke-width="3" fill="none" opacity=".5"/>
+  <rect x="121" y="96" width="22" height="7" rx="3" fill="${C.rambut}"/><rect x="157" y="96" width="22" height="7" rx="3" fill="${C.rambut}"/>
+  <ellipse cx="132" cy="114" rx="4.5" ry="5" fill="${C.hitam}"/><ellipse cx="168" cy="114" rx="4.5" ry="5" fill="${C.hitam}"/>
+  <path d="M150 112 L143 134 Q150 138 157 134 Z" fill="${C.kulitG}"/>
+  <path d="M126 146 Q150 132 174 146 Q162 154 150 149 Q138 154 126 146 Z" fill="${C.rambut}"/>`;
+}
+function torso(armL, armR) {
+  return `
+  <path d="${armL}" stroke="${C.jaket}" stroke-width="40" stroke-linecap="round" fill="none"/>
+  <path d="${armR}" stroke="${C.jaket}" stroke-width="40" stroke-linecap="round" fill="none"/>
+  <path d="M84 196 Q150 174 216 196 L226 384 Q150 400 74 384 Z" fill="${C.jaket}"/>
+  <path d="M124 188 L150 256 L176 188 Z" fill="${C.baju}"/>
+  <line x1="150" y1="256" x2="150" y2="386" stroke="#1A2140" stroke-width="4"/>`;
+}
+function manStanding() {
+  return `<svg width="300" height="640" viewBox="0 0 300 640">
+  <ellipse cx="150" cy="628" rx="105" ry="10" fill="rgba(0,0,0,.12)"/>
+  <rect x="98" y="360" width="104" height="60" fill="${C.seluar}"/>
+  <rect x="100" y="400" width="44" height="216" fill="${C.seluar}"/><rect x="156" y="400" width="44" height="216" fill="${C.seluar}"/>
+  <ellipse cx="118" cy="620" rx="32" ry="12" fill="${C.kasut}"/><ellipse cx="182" cy="620" rx="32" ry="12" fill="${C.kasut}"/>
+  ${torso("M92 212 Q72 292 76 362", "M208 212 Q228 292 224 362")}
+  <circle cx="76" cy="376" r="17" fill="${C.kulit}"/><circle cx="224" cy="376" r="17" fill="${C.kulit}"/>
+  ${head()}</svg>`;
+}
+function manSeated() {
+  return `<svg width="300" height="640" viewBox="0 0 300 640">
+  <rect x="94" y="372" width="112" height="62" rx="16" fill="${C.seluar}"/>
+  <rect x="100" y="424" width="42" height="116" fill="${C.seluar}"/><rect x="158" y="424" width="42" height="116" fill="${C.seluar}"/>
+  <ellipse cx="118" cy="544" rx="32" ry="12" fill="${C.kasut}"/><ellipse cx="182" cy="544" rx="32" ry="12" fill="${C.kasut}"/>
+  ${torso("M92 212 Q76 320 112 392", "M208 212 Q224 320 188 392")}
+  <rect x="104" y="376" width="92" height="36" rx="4" fill="#F5F1E6" transform="rotate(-4 150 394)"/>
+  <line x1="116" y1="388" x2="180" y2="384" stroke="#BBB" stroke-width="3"/><line x1="116" y1="398" x2="170" y2="395" stroke="#BBB" stroke-width="3"/>
+  <circle cx="112" cy="398" r="16" fill="${C.kulit}"/><circle cx="188" cy="396" r="16" fill="${C.kulit}"/>
+  ${head()}</svg>`;
+}
+function bench() {
+  let s = `<svg width="700" height="300" viewBox="0 0 700 300"><ellipse cx="350" cy="292" rx="340" ry="12" fill="rgba(0,0,0,.12)"/>`;
+  for (let i = 0; i < 3; i++) {
+    const x = 12 + i * 228;
+    s += `<rect x="${x}" y="10" width="216" height="140" rx="26" fill="${C.merah}"/>
+          <rect x="${x}" y="146" width="216" height="56" rx="16" fill="${C.merahG}"/>`;
+  }
+  return s + `<rect x="0" y="204" width="700" height="18" rx="6" fill="${C.besi}"/>
+    <rect x="70" y="222" width="20" height="64" fill="${C.besi}"/><rect x="610" y="222" width="20" height="64" fill="${C.besi}"/>
+    <rect x="44" y="282" width="72" height="10" rx="4" fill="${C.besi}"/><rect x="584" y="282" width="72" height="10" rx="4" fill="${C.besi}"/></svg>`;
+}
+function board() {
+  const rows = [["PARIS", "TIBA"], ["LONDON", "BATAL"], ["BRUSSELS", "BATAL"]];
+  let s = `<svg width="360" height="260" viewBox="0 0 360 260"><rect x="0" y="0" width="360" height="260" rx="18" fill="${C.hitam}"/>
+    <text x="24" y="50" fill="${"#F2BF45"}" font-family="Montserrat" font-weight="800" font-size="28">BERLEPAS</text>`;
+  rows.forEach((r, i) => {
+    s += `<text x="24" y="${108 + i * 54}" fill="#fff" font-family="Montserrat" font-weight="700" font-size="28">${r[0]}</text>
+          <text x="336" y="${108 + i * 54}" text-anchor="end" fill="${r[1] === "BATAL" ? C.merah : "#7CD992"}" font-family="Montserrat" font-weight="800" font-size="26">${r[1]}</text>`;
+  });
+  return s + `</svg>`;
+}
+function flag() {
+  return `<svg width="320" height="380" viewBox="0 0 320 380"><rect x="20" y="0" width="12" height="380" rx="5" fill="${C.besi}"/>
+    <rect x="32" y="20" width="270" height="60" fill="#239F40"/><rect x="32" y="80" width="270" height="60" fill="#fff"/>
+    <rect x="32" y="140" width="270" height="60" fill="#DA0000"/><rect x="32" y="20" width="270" height="180" fill="none" stroke="rgba(0,0,0,.15)" stroke-width="3"/></svg>`;
+}
+function plane(w = 120, col = C.hitam) {
+  return `<svg width="${w}" height="${w}" viewBox="-60 -60 120 120"><path d="M-48 -6 L30 -6 Q52 -6 56 0 Q52 6 30 6 L-48 6 Q-54 0 -48 -6Z" fill="${col}"/>
+    <path d="M2 -6 L-18 -46 L-6 -46 L22 -6Z M2 6 L-18 46 L-6 46 L22 6Z" fill="${col}"/>
+    <path d="M-38 -6 L-50 -24 L-42 -24 L-28 -6Z M-38 6 L-50 24 L-42 24 L-28 6Z" fill="${col}"/></svg>`;
+}
+function map() {
+  let dots = "";
+  for (let y = 40; y < 900; y += 46) for (let x = 40; x < 940; x += 46) dots += `<circle cx="${x}" cy="${y}" r="3" fill="rgba(0,0,0,.08)"/>`;
+  const pin = (id, x, y, label, lx) => `<g id="${id}" style="opacity:0"><path d="M${x} ${y} q-34 -48 -34 -74 a34 34 0 1 1 68 0 q0 26 -34 74z" fill="${C.merah}"/><circle cx="${x}" cy="${y - 74}" r="13" fill="#fff"/>
+    <rect x="${lx}" y="${y + 10}" width="${label.length * 26 + 40}" height="56" rx="28" fill="${C.navy}"/><text x="${lx + 20}" y="${y + 48}" fill="#fff" font-family="Montserrat" font-weight="800" font-size="32">${label}</text></g>`;
+  return `<svg width="940" height="780" viewBox="0 0 940 780"><rect width="940" height="780" rx="36" fill="#FFF6DC"/>${dots}
+    <polyline id="arc1" fill="none" stroke="${C.hitam}" stroke-width="8" stroke-dasharray="18 14" stroke-linecap="round"/>
+    <polyline id="arc2" fill="none" stroke="${C.merah}" stroke-width="8" stroke-dasharray="18 14" stroke-linecap="round"/>
+    ${pin("pinIR", 760, 640, "IRAN", 690)}${pin("pinBE", 330, 230, "BELGIUM", 250)}${pin("pinFR", 230, 470, "PERANCIS", 110)}
+    <g id="mapPlane" style="opacity:0">${plane(110).replace("<svg", '<svg x="-55" y="-55"')}</g></svg>`;
+}
+function suitcase() {
+  return `<svg width="420" height="360" viewBox="0 0 420 360">
+    <ellipse cx="210" cy="346" rx="190" ry="12" fill="rgba(0,0,0,.12)"/>
+    <g id="caseLid" style="transform-origin:30px 170px">
+      <path d="M160 90 V64 Q160 50 174 50 H246 Q260 50 260 64 V90" stroke="#7A4A1A" stroke-width="16" fill="none"/>
+      <rect x="30" y="86" width="360" height="90" rx="22" fill="#B8742B"/>
+      <rect x="196" y="150" width="28" height="22" rx="4" fill="#E8C066"/></g>
+    <rect x="30" y="168" width="360" height="172" rx="22" fill="#C9822F"/>
+    <rect x="100" y="168" width="18" height="172" fill="#A9661F"/><rect x="302" y="168" width="18" height="172" fill="#A9661F"/></svg>`;
+}
+function paper(i) {
+  if (i === 0) return `<svg width="120" height="160" viewBox="0 0 120 160"><rect width="120" height="160" rx="10" fill="#7B1E22"/><circle cx="60" cy="66" r="26" fill="none" stroke="#E2B65A" stroke-width="5"/>
+    <text x="60" y="130" text-anchor="middle" fill="#E2B65A" font-family="Montserrat" font-weight="800" font-size="16">PASPORT</text></svg>`;
+  let s = `<svg width="130" height="170" viewBox="0 0 130 170"><rect width="130" height="170" rx="6" fill="#fff" stroke="#ccc" stroke-width="3"/>`;
+  for (let k = 0; k < 6; k++) s += `<rect x="16" y="${24 + k * 22}" width="${k % 2 ? 70 : 98}" height="8" rx="4" fill="#C9CCD3"/>`;
+  return s + `<circle cx="96" cy="140" r="14" fill="none" stroke="${C.merah}" stroke-width="4"/></svg>`;
+}
+function door(label) {
+  return `<svg width="300" height="560" viewBox="0 0 300 560">
+    <rect x="20" y="0" width="260" height="70" rx="10" fill="${C.hitam}"/>
+    <text x="150" y="48" text-anchor="middle" fill="#fff" font-family="Montserrat" font-weight="800" font-size="36">${label}</text>
+    <rect x="20" y="90" width="260" height="460" rx="8" fill="#5B6275"/>
+    <rect x="44" y="114" width="212" height="436" rx="4" fill="#9FB4C7"/>
+    <rect x="148" y="114" width="4" height="436" fill="#5B6275"/>
+    <rect x="124" y="320" width="14" height="60" rx="6" fill="${C.hitam}"/><rect x="162" y="320" width="14" height="60" rx="6" fill="${C.hitam}"/></svg>`;
+}
+function mindmap() {
+  const node = (id, x, y, icon, label) => `<g id="${id}" style="opacity:0">
+    <circle cx="${x}" cy="${y}" r="140" fill="#fff" stroke="${C.hitam}" stroke-width="8"/>${icon(x, y)}
+    <rect x="${x - label.length * 14 - 30}" y="${y + 160}" width="${label.length * 28 + 60}" height="62" rx="31" fill="${C.navy}"/>
+    <text x="${x}" y="${y + 203}" text-anchor="middle" fill="#fff" font-family="Montserrat" font-weight="800" font-size="34">${label}</text></g>`;
+  const iBench = (x, y) => `<rect x="${x - 90}" y="${y - 60}" width="56" height="60" rx="12" fill="${C.merah}"/><rect x="${x - 28}" y="${y - 60}" width="56" height="60" rx="12" fill="${C.merah}"/><rect x="${x + 34}" y="${y - 60}" width="56" height="60" rx="12" fill="${C.merah}"/>
+    <rect x="${x - 94}" y="${y}" width="188" height="26" rx="8" fill="${C.merahG}"/><rect x="${x - 98}" y="${y + 28}" width="196" height="10" fill="${C.besi}"/><rect x="${x - 76}" y="${y + 38}" width="10" height="34" fill="${C.besi}"/><rect x="${x + 66}" y="${y + 38}" width="10" height="34" fill="${C.besi}"/>`;
+  const iSink = (x, y) => `<rect x="${x - 10}" y="${y - 80}" width="20" height="44" rx="6" fill="${C.besi}"/><path d="M${x} ${y - 70} h40 v16" stroke="${C.besi}" stroke-width="14" fill="none" stroke-linecap="round"/>
+    <path d="M${x - 90} ${y - 20} H${x + 90} Q${x + 86} ${y + 60} ${x} ${y + 64} Q${x - 86} ${y + 60} ${x - 90} ${y - 20}Z" fill="#E6EEF4" stroke="${C.hitam}" stroke-width="6"/>
+    <path id="drip" d="M${x + 40} ${y - 40} q-8 14 0 18 q8 -4 0 -18z" fill="#4FA3E0"/>`;
+  const iDiary = (x, y) => `<rect x="${x - 70}" y="${y - 80}" width="130" height="160" rx="10" fill="${C.navy}"/><rect x="${x - 70}" y="${y - 80}" width="18" height="160" fill="#1D2448"/>
+    <rect x="${x - 36}" y="${y - 44}" width="72" height="14" rx="6" fill="#F2BF45"/><path d="M${x + 40} ${y + 70} L${x + 86} ${y - 40} L${x + 100} ${y - 34} L${x + 54} ${y + 76}Z" fill="${C.merah}"/>`;
+  return `<svg width="1080" height="1920" viewBox="0 0 1080 1920">
+    <polyline id="mm1" fill="none" stroke="${C.hitam}" stroke-width="8" stroke-linecap="round"/>
+    <polyline id="mm2" fill="none" stroke="${C.hitam}" stroke-width="8" stroke-linecap="round"/>
+    <polyline id="mm3" fill="none" stroke="${C.hitam}" stroke-width="8" stroke-linecap="round"/>
+    <g id="mmC" style="opacity:0"><rect x="370" y="890" width="340" height="110" rx="22" fill="${C.hitam}"/>
+      <text x="540" y="962" text-anchor="middle" fill="#fff" font-family="Montserrat" font-weight="900" font-size="48">TERMINAL 1</text></g>
+    ${node("mmB", 260, 620, iBench, "BANGKU")}${node("mmS", 820, 640, iSink, "SINKI")}${node("mmD", 300, 1250, iDiary, "DIARI")}</svg>`;
+}
+function clapper() {
+  let stripes = "";
+  for (let i = 0; i < 6; i++) stripes += `<path d="M${20 + i * 100} 0 h50 l-40 70 h-50z" fill="#fff"/>`;
+  return `<svg width="600" height="540" viewBox="0 0 600 540">
+    <g id="clapArm" style="transform-origin:20px 140px"><rect x="10" y="70" width="580" height="70" rx="8" fill="${C.hitam}"/><g transform="translate(0 70)">${stripes}</g></g>
+    <rect x="10" y="150" width="580" height="380" rx="14" fill="${C.hitam}"/>
+    <g transform="translate(0 150)">${stripes}</g>
+    <text x="300" y="340" text-anchor="middle" fill="#fff" font-family="Montserrat" font-weight="900" font-size="68">THE TERMINAL</text>
+    <line x1="40" y1="380" x2="560" y2="380" stroke="#555" stroke-width="4"/>
+    <text x="60" y="460" fill="#F2BF45" font-family="Montserrat" font-weight="800" font-size="44">ADEGAN 1</text>
+    <text x="540" y="460" text-anchor="end" fill="#F2BF45" font-family="Montserrat" font-weight="800" font-size="44">2004</text></svg>`;
+}
+function medical() {
+  return `<svg width="400" height="400" viewBox="0 0 400 400"><rect x="10" y="10" width="380" height="380" rx="60" fill="#fff" stroke="${C.hitam}" stroke-width="10"/>
+    <path d="M150 70 H250 V150 H330 V250 H250 V330 H150 V250 H70 V150 H150Z" fill="${C.merah}"/></svg>`;
+}
+function bags() {
+  return `<svg width="260" height="200" viewBox="0 0 260 200"><ellipse cx="130" cy="192" rx="125" ry="9" fill="rgba(0,0,0,.12)"/>
+    <rect x="10" y="60" width="130" height="130" rx="6" fill="#C9A16A"/><rect x="10" y="60" width="130" height="22" fill="#B48B55"/><rect x="66" y="60" width="18" height="130" fill="#E8D3A8" opacity=".7"/>
+    <rect x="150" y="90" width="100" height="100" rx="14" fill="#C9822F"/><path d="M180 90 V74 Q180 66 188 66 H212 Q220 66 220 74 V90" stroke="#7A4A1A" stroke-width="10" fill="none"/></svg>`;
+}
+
+// isi lukisan
+const put = (id, html) => { document.getElementById(id).innerHTML = html; };
+put("s1board", board()); put("s1bench", bench()); put("s1man", manSeated());
+put("s2man", manStanding()); put("s2flag", flag());
+put("s3map", map());
+put("s4case", suitcase());
+put("s5doorL", door("PERANCIS")); put("s5doorR", door("BELGIUM")); put("s5man", manStanding());
+put("s6map", mindmap());
+put("s7clap", clapper()); put("s7med", medical());
+put("s8bench", bench()); put("s8man", manSeated()); put("s8bags", bags());
+put("s9plane", plane(160));
+// kertas yang terbang dari beg (babak 4)
+const s4 = document.getElementById("s4");
+const PAPERS = [[-330, -520, -40], [260, -560, 35], [-420, -180, -70], [380, -260, 60], [-60, -700, 15], [120, -420, -25]];
+PAPERS.forEach((p, i) => { const d = document.createElement("div"); d.className = "el"; d.id = "pp" + i; d.style.left = "470px"; d.style.top = "960px"; d.innerHTML = paper(i); s4.insertBefore(d, document.getElementById("s4pill")); });
+// latar kata kunci berulang
+document.querySelectorAll(".scene").forEach(sc => {
+  const w = sc.dataset.bg, bg = document.createElement("div"); bg.className = "bgw";
+  for (let r = 0; r < 10; r++) { const d = document.createElement("div"); d.textContent = (w + " ").repeat(8); bg.appendChild(d); }
+  sc.prepend(bg);
+});
+
+// ---------- animasi ----------
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const eOut = x => 1 - Math.pow(1 - clamp(x), 3);
+const eIO = x => { x = clamp(x); return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
+const eBack = x => { x = clamp(x); const c1 = 1.9, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); };
+const $ = id => document.getElementById(id);
+function tf(el, { x = 0, y = 0, s = 1, sx = null, r = 0, o = 1 }) {
+  const base = +(el.dataset.r || 0);
+  el.style.transform = `translate(${x}px,${y}px) rotate(${base + r}deg) scale(${sx ?? s},${s})`;
+  el.style.opacity = o;
+}
+// masuk: pop (anjal), slap (pelekat ditampal), rise (naik), fade
+function enter(id, kind, t0, lt, extra = {}) {
+  const el = $(id), d = { pop: .42, slap: .24, rise: .45, fade: .5, drop: .5 }[kind];
+  const p = (lt - t0) / d;
+  if (p <= 0) { el.style.opacity = 0; return 0; }
+  let st = {};
+  if (kind === "pop") st = { s: eBack(p), o: clamp(p * 3) };
+  if (kind === "slap") st = { s: 1.7 - .7 * eOut(p), o: clamp(p * 4), r: (1 - eOut(p)) * -8 };
+  if (kind === "rise") st = { y: (1 - eOut(p)) * 80, o: clamp(p * 2) };
+  if (kind === "fade") st = { o: clamp(p) };
+  if (kind === "drop") st = { y: (1 - eBack(p)) * -220, o: clamp(p * 3) };
+  Object.assign(st, extra);
+  if (extra.y !== undefined && st.y === undefined) st.y = extra.y;
+  if (extra.until !== undefined) st.o = (st.o ?? 1) * (1 - clamp((lt - extra.until) / .3));
+  tf(el, st);
+  return clamp(p);
+}
+function bezier(a, c, b, n, prog) {
+  const pts = [], m = Math.max(1, Math.round(n * clamp(prog)));
+  for (let i = 0; i <= m; i++) {
+    const t = i / n, u = 1 - t;
+    pts.push([u * u * a[0] + 2 * u * t * c[0] + t * t * b[0], u * u * a[1] + 2 * u * t * c[1] + t * t * b[1]]);
+  }
+  return pts;
+}
+const ptsAttr = pts => pts.map(p => p.join(",")).join(" ");
+
+const TL = window.TIMELINE;
+let SC = null; // babak semasa
+const w = i => SC.words[i].t - SC.start; // masa perkataan ke-i (relatif babak)
+
+const CAPS = [
+  [[0, "Lelaki ni tinggal di lapangan terbang..."], [6, "selama 18 tahun."]],
+  [[0, "Namanya Mehran Karimi Nasseri,"], [4, "dari Iran."], [6, "Tahun 1977,"], [12, "dia diusir kerana menentang Shah Iran."]],
+  [[0, "Dia jadi pelarian di Belgium,"], [5, "dan selalu berulang-alik ke Perancis."]],
+  [[0, "Tahun 1988,"], [6, "di lapangan terbang Paris,"], [10, "beg berisi dokumennya hilang."]],
+  [[0, "Tanpa dokumen,"], [2, "dia tak boleh masuk Perancis."], [7, "Nak pulang ke Belgium pun tak boleh."]],
+  [[0, "Jadi, Terminal 1 jadi rumahnya."], [5, "Tidur di bangku."], [8, "Cuci muka di sinki."], [12, "Menulis diari, setiap hari."]],
+  [[0, "Kisahnya jadi inspirasi filem Hollywood,"], [5, "The Terminal."], [7, "Tahun 2006,"], [11, "dia keluar kerana sakit."]],
+  [[0, "Tapi pada 12 November 2022,"], [10, "dia kembali ke lapangan terbang yang sama..."], [17, "dan meninggal dunia di situ."]],
+  [[0, "Follow untuk lebih banyak kisah benar yang luar biasa."]],
+];
+
+const breathe = lt => ({ s: 1 + .008 * Math.sin(lt * 2.4) });
+
+const SCENES = [
+  // 1 · hook
+  lt => {
+    enter("s1tag", "pop", .05, lt);
+    enter("s1bench", "rise", .15, lt);
+    enter("s1man", "rise", .35, lt, breathe(lt));
+    enter("s1board", "drop", w(2), lt);
+    enter("s1pill", "pop", w(4), lt);
+    enter("s1title", "slap", w(6), lt);
+    $("s1num").textContent = Math.round(18 * eIO((lt - w(6)) / (w(9) - w(6) + .2)));
+  },
+  // 2 · siapa dia
+  lt => {
+    enter("s2tag", "pop", .05, lt);
+    const kick = eOut((lt - w(13)) / .35);
+    enter("s2man", "rise", .1, lt, { x: -60 * kick, r: -4 * kick });
+    enter("s2pill", "pop", w(1), lt);
+    enter("s2flag", "drop", w(5) - .2, lt);
+    enter("s2pill2", "pop", w(5), lt);
+    enter("s2title", "slap", w(6), lt);
+    enter("s2st1", "slap", w(13), lt);
+    enter("s2st2", "slap", w(15), lt);
+  },
+  // 3 · pelarian
+  lt => {
+    enter("s3tag", "pop", .05, lt);
+    enter("s3title", "slap", w(2), lt);
+    enter("s3map", "rise", .1, lt);
+    const IR = [760, 566], BE = [330, 156], FR = [230, 396];
+    $("pinIR").style.opacity = clamp((lt - .4) / .2);
+    const p1 = clamp((lt - .5) / (w(4) - .5));
+    const a1 = bezier(IR, [620, 160], BE, 60, p1);
+    $("arc1").setAttribute("points", ptsAttr(a1));
+    $("pinBE").style.opacity = clamp((lt - w(4)) / .2);
+    // ulang-alik Belgium <-> Perancis
+    const t2 = lt - w(6), p2 = clamp(t2 / .9);
+    const a2 = bezier(BE, [140, 240], FR, 40, p2);
+    $("arc2").setAttribute("points", ptsAttr(a2));
+    $("pinFR").style.opacity = clamp((lt - w(6) - .7) / .2);
+    let pos, prev;
+    if (t2 < 0) { pos = a1[a1.length - 1]; prev = a1[Math.max(0, a1.length - 2)]; }
+    else {
+      const k = (Math.sin(t2 * 2.6 - Math.PI / 2) + 1) / 2, full = bezier(BE, [140, 240], FR, 40, 1);
+      const idx = Math.round(k * 40); pos = full[idx];
+      const dir = Math.cos(t2 * 2.6 - Math.PI / 2) >= 0 ? 1 : -1;
+      prev = full[clamp(idx - dir, 0, 40)];
+    }
+    const ang = Math.atan2(pos[1] - prev[1], pos[0] - prev[0]) * 180 / Math.PI;
+    const pl = $("mapPlane");
+    pl.style.opacity = clamp((lt - .5) / .2);
+    pl.setAttribute("transform", `translate(${pos[0]} ${pos[1]}) rotate(${isNaN(ang) ? -40 : ang})`);
+    enter("s3st", "slap", w(2) + .25, lt);
+  },
+  // 4 · dokumen hilang
+  lt => {
+    enter("s4title", "slap", .05, lt);
+    enter("s4tag", "pop", w(6), lt);
+    const shake = lt > w(10) && lt < w(12) ? Math.sin(lt * 50) * 3 : 0;
+    enter("s4case", "drop", .25, lt, { r: shake });
+    enter("s4pill", "pop", w(10), lt);
+    const open = eBack((lt - w(12)) / .4);
+    $("caseLid").style.transform = `rotate(${-38 * open}deg)`;
+    PAPERS.forEach(([dx, dy, rot], i) => {
+      const p = clamp((lt - w(12) - .05 - i * .07) / 1.3);
+      const el = $("pp" + i);
+      if (p <= 0) { el.style.opacity = 0; return; }
+      const e = eOut(p);
+      tf(el, { x: dx * e, y: dy * e + 260 * p * p, r: rot * e * 2, s: .7 + .3 * e, o: p < .75 ? 1 : 1 - (p - .75) / .25 });
+    });
+    enter("s4st", "slap", w(13), lt);
+  },
+  // 5 · terkandas
+  lt => {
+    enter("s5tag", "pop", .05, lt);
+    enter("s5title", "slap", w(2), lt);
+    enter("s5man", "rise", .1, lt);
+    // menoleh kiri ke Perancis, kemudian kanan ke Belgium
+    const look = lt < w(8) ? -1 : 1;
+    const m = $("s5man"); m.style.transform += ` scaleX(${look})`;
+    enter("s5doorL", "rise", w(5) - .3, lt);
+    enter("s5x1", "slap", w(6), lt);
+    enter("s5doorR", "rise", w(10) - .3, lt);
+    enter("s5x2", "slap", w(12), lt);
+  },
+  // 6 · rumah baru
+  lt => {
+    enter("s6tag", "pop", .05, lt);
+    $("s6map").style.opacity = 1;
+    $("mmC").style.opacity = clamp((lt - w(1)) / .2);
+    enter("s6title", "slap", w(4), lt);
+    const C0 = [540, 945];
+    const branch = (pl, node, t0, to, ctrl) => {
+      const p = clamp((lt - t0 + .35) / .35);
+      $(pl).setAttribute("points", ptsAttr(bezier(C0, ctrl, to, 30, p)));
+      const g = $(node), q = clamp((lt - t0) / .35);
+      g.style.opacity = q; g.style.transformOrigin = `${to[0]}px ${to[1]}px`; g.style.transform = `scale(${eBack(q)})`;
+    };
+    branch("mm1", "mmB", w(7), [260, 620], [300, 900]);
+    branch("mm2", "mmS", w(11), [820, 640], [820, 900]);
+    branch("mm3", "mmD", w(13), [300, 1250], [380, 1050]);
+    const dr = (lt * 1.6) % 1; $("drip").setAttribute("transform", `translate(0 ${dr * 50})`); $("drip").style.opacity = 1 - dr;
+    enter("s6st", "slap", w(14), lt);
+  },
+  // 7 · filem & sakit
+  lt => {
+    const sw = w(7); // tukar ke 2006
+    enter("s7tag", "pop", .05, lt, { until: sw });
+    enter("s7title", "slap", w(2), lt, { until: sw });
+    enter("s7clap", "pop", w(2) - .2, lt, { until: sw });
+    const clap = (lt - w(4)) < 0 ? -22 : -22 * (1 - eOut((lt - w(4)) / .12));
+    $("clapArm").style.transform = `rotate(${clap}deg)`;
+    enter("s7st", "slap", w(4), lt, { until: sw });
+    enter("s7pill", "pop", w(5), lt, { until: sw });
+    if (lt > sw) { $("s7tag").textContent = "2006"; $("s7title").textContent = "2006"; enter("s7tag", "pop", sw, lt); enter("s7title", "slap", sw + .05, lt); }
+    else { $("s7tag").textContent = "2004"; $("s7title").textContent = "DIFILEMKAN"; }
+    enter("s7med", "pop", sw + .15, lt, { s: undefined });
+    if (lt > sw + .15) { const p = clamp((lt - sw - .15) / .42); tf($("s7med"), { s: eBack(p) * (1 + .03 * Math.sin(lt * 6)), o: clamp(p * 3) }); }
+    enter("s7st2", "slap", w(13), lt);
+  },
+  // 8 · kembali & akhir hayat
+  lt => {
+    const end = w(18);
+    enter("s8tag", "pop", w(4), lt);
+    enter("s8bench", "fade", .05, lt);
+    enter("s8bags", "rise", .4, lt);
+    // dia masuk duduk semula, kemudian pudar perlahan
+    const inP = eOut((lt - w(11)) / .6), outP = clamp((lt - end) / 1.8);
+    const man = $("s8man");
+    if (lt < w(11)) man.style.opacity = 0;
+    else tf(man, { x: -120 * (1 - inP), o: clamp((lt - w(11)) / .4) * (1 - outP), ...breathe(lt) });
+    enter("s8title", "slap", w(11), lt, { until: end });
+    enter("s8pill", "pop", w(13), lt, { until: end });
+    enter("s8title2", "fade", end + .2, lt);
+    $("fade").style.opacity = .0;
+  },
+  // 9 · CTA
+  lt => {
+    enter("s9tag", "pop", .05, lt);
+    enter("s9btn", "slap", w(0), lt, { s: undefined });
+    const pb = clamp((lt - w(0)) / .24);
+    tf($("s9btn"), { s: (1.7 - .7 * eOut(pb)) * (1 + .04 * Math.max(0, Math.sin((lt - 1) * 5))), o: clamp(pb * 4) });
+    enter("s9title", "rise", w(4), lt);
+    enter("s9sub", "rise", w(6), lt);
+    const px = (lt * 380) % 1500 - 220; tf($("s9plane"), { x: px, y: -40 * Math.sin(px / 300), r: -8, o: clamp(lt / .3) });
+    $("fade").style.opacity = clamp((lt - (SC.end - SC.start - .6)) / .6);
+  },
+];
+
+const TRANS = .28; // whip masuk babak baru
+function render(t) {
+  const scenes = TL.scenes;
+  let k = scenes.findIndex(s => t < s.end); if (k < 0) k = scenes.length - 1;
+  document.querySelectorAll(".scene").forEach(s => s.style.display = "none");
+  const show = (i, lt) => {
+    SC = scenes[i];
+    const el = document.getElementById("s" + (i + 1)); el.style.display = "block";
+    el.querySelectorAll(".bgw div").forEach((d, r) => d.style.transform = `translateX(${(r % 2 ? 1 : -1) * lt * 28 - (r % 3) * 120}px)`);
+    SCENES[i](lt);
+    return el;
+  };
+  const lt = t - scenes[k].start;
+  if (k > 0 && lt < TRANS) { const prev = show(k - 1, t - scenes[k - 1].start); prev.style.zIndex = 1; prev.style.transform = `translateX(${-30 * eIO(lt / TRANS)}%)`; }
+  const cur = show(k, lt); cur.style.zIndex = 2;
+  cur.style.transform = k > 0 ? `translateX(${100 * (1 - eIO(lt / TRANS))}%)` : "none";
+  SC = scenes[k];
+  // sarikata
+  const caps = CAPS[k]; let txt = "";
+  for (const [i, s] of caps) if (lt >= w(i) - .08) txt = s;
+  const cap = $("cap"); cap.textContent = txt; cap.style.opacity = txt ? 1 : 0;
+}
+window.render = render;
+render(0);
+</script>
+</body>
+</html>
